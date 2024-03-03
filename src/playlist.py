@@ -46,7 +46,7 @@ class PlayList:
                                                        ).execute()
         video_ids: list[str] = [video['contentDetails']['videoId'] for video in playlist_videos['items']]
         max_like = 0
-        max_video = ''
+        max_video = None
         for id_v in video_ids:
             video_response = youtube.videos().list(part='snippet,statistics,contentDetails,topicDetails',
                                                    id=id_v).execute()
